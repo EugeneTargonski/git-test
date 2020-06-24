@@ -1,0 +1,155 @@
+Keys:
+	ssh-keygen -t rsa -C "myname@email.com"
+
+Name set:
+	git config --global user.name "my  name"
+	git config --global user.email "myname@email.com"
+
+Name get:
+	git config --global user.name
+	git config --global user.email
+
+Clone repo:
+	- go to target dir
+	- paste <ssh path> (git clone)
+
+Check Status:
+	git status
+
+Check history:
+	git log
+
+Checkout file:
+	git add file.name
+
+Checkout all (add to index):
+	git add .
+
+Commit:
+	git commit -m "message"
+
+Push:
+	git push
+
+Pull:
+	git pull
+
+GUI:
+	git gui
+	git gui&
+	gitk
+	gitk&
+
+Undo:
+	git checkout -- file.txt
+	git checkout .
+
+Undo new files (x=ignore, d = fir, f = force):
+	git clean -xdf
+
+Undo from index:
+	git reset -- file.txt
+
+Add files to existing commit:
+	git commit --amend -m "message"
+
+Undo from commit to file system:
+	git reset HEAD^^
+	git reset HEAD~2
+	git reset --mixed HEAD^^
+	git reset --mixed HEAD~2
+
+Undo from commit to index:
+	git reset --soft HEAD^^
+	git reset --soft HEAD~2
+
+Delete from commit:
+	git reset --hard HEAD^^
+	git reset --hard HEAD~2
+
+Undo from remote (Create new revert commit):
+	git revert <sha-1>
+
+Vi:
+	insert - enter to edit mode
+	esc - exit from edit mode to command mode
+
+	commands:
+	:wq + enter = write and quit
+	:q! + enter = quit without changes
+
+.gitignore
+	#comment
+	file.log
+	*.tmp
+	
+	#don't hide
+	!error.log
+
+	#ignore todo file in current dir
+	/TODO
+	
+	#ignore all files in TODO2 dir
+	todo2/
+
+	#ignore all txt files in doc dir (but not doc subdir)
+	doc/*.txt
+
+	#ignore all txt files in doc dir and subdir
+	doc/**/*.txt
+
+Branches:
+Create branch:
+	git checkout -b branchname 
+
+Switch branch:
+	git checkout branchname 
+
+Merge current branch with branchname:
+	git merge branchname
+
+Abort merge in conflicts case:
+	git merge --abort
+
+Take theirs file version:
+	git merge --Xtheirs
+
+Take my file version:
+	git merge --Xours
+
+Change initial commit to the last commit of target branch:
+	git rebase targetbranchname
+
+Add any commit to the current branch:
+	git cherry-pick <sha-1>
+
+Tags:
+Add tag:
+	git tag tagname
+
+View tags:
+	git tag -list
+
+Push tag:
+	git push --tags
+
+Temp saving:
+Save:
+	git stash save "descr"
+
+View stashes:
+	git stash list
+
+Bring stash back:
+	git stash pop (and remove)
+	git stash apply (and leave)
+Clear:
+	git stash drop
+
+Remote:
+View:
+	git remote -v
+Remove connection:
+	git remote remove origin
+Add connection:
+	git remote add origin <ssh path>
